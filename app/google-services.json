@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "778491998699",
+    "firebase_url": "https://fragmentproject-caa52.firebaseio.com",
+    "project_id": "fragmentproject-caa52",
+    "storage_bucket": "fragmentproject-caa52.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:778491998699:android:e7e7c42f55078b651be9ae",
+        "android_client_info": {
+          "package_name": "com.example.fragmentactivity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "778491998699-5dm5uumnvevt73nc0tgv296r9g0ert1v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgjxN2jUHOI8cNJlcXI-FP34PSrtvaR_I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "778491998699-5dm5uumnvevt73nc0tgv296r9g0ert1v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
