@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-        ft.replace(R.id.container,new FragmentRecycler());
+        ft.replace(R.id.container, new FragmentRecycler());
 
 
 //        if (savedInstanceState != null) {
@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 //                    .beginTransaction()
 //                    .replace(R.id.container,FragmentRecycler.newInstance()).commitNow();
 //        }
+
+
     }
-
-
 }

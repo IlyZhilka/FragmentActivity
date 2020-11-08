@@ -18,12 +18,17 @@ import java.util.ArrayList;
 
 public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-
-
     private Context context;
     private ArrayList<Data> models;
+    private OnClickListener onClickListener;
 
+    public void setOnClickListener(OnClickListener onClickListener) {
+        this.onClickListener = onClickListener;
+    }
 
+    interface OnClickListener{
+        void onClick(Data model);
+    }
 
     public Adapter(Context context, ArrayList<Data> models){
         this.context = context;
@@ -61,6 +66,12 @@ public class Adapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
         Glide.with(context)
                 .load(models.get(position).getImage())
                 .into( ((ViewHolder) holder).imageView);
+        ((ViewHolder) holder).cardView.setOnClickListener(v -> {
+            if(onClickListener != null){
+                onClickListener.onClick(models.get(position));
+            }
+        });
+
     }
 
     @Override
