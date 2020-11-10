@@ -9,23 +9,25 @@ import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity {
 
+     static FragmentManager fragmentManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FragmentManager fm = getSupportFragmentManager();
-        FragmentTransaction ft = fm.beginTransaction();
-        ft.replace(R.id.container, new FragmentRecycler());
-
-
-//        if (savedInstanceState != null) {
-//            getSupportFragmentManager()
-//                    .beginTransaction()
-//                    .replace(R.id.container,FragmentRecycler.newInstance()).commitNow();
-//        }
+        fragmentManager = getSupportFragmentManager();
+        newFragment(new FragmentRecycler());
 
 
     }
+
+    public  void newFragment(Fragment fragment){
+        FragmentTransaction ft = fragmentManager.beginTransaction();
+        ft.add(R.id.container, fragment);
+        ft.addToBackStack(null);
+        ft.commit();
+    }
+
+
 }

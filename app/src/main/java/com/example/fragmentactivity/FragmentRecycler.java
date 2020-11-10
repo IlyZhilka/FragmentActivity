@@ -1,6 +1,5 @@
 package com.example.fragmentactivity;
 
-import android.app.FragmentManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,6 +22,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+import static com.example.fragmentactivity.MainActivity.fragmentManager;
+
 
 public class FragmentRecycler extends Fragment implements Adapter.OnClickListener {
 
@@ -29,7 +31,6 @@ public class FragmentRecycler extends Fragment implements Adapter.OnClickListene
         return new FragmentRecycler();
     }
 
-    FragmentManager myFragmentManager;
 
     RecyclerView recyclerView;
 
@@ -41,7 +42,7 @@ public class FragmentRecycler extends Fragment implements Adapter.OnClickListene
     private View listItems;
     private RecyclerView.LayoutManager manager;
 
-
+    private MainActivity mainActivity;
 
     @Nullable
     @Override
@@ -49,8 +50,7 @@ public class FragmentRecycler extends Fragment implements Adapter.OnClickListene
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
 
-
-
+        mainActivity = new MainActivity();
         listItems = inflater.inflate(R.layout.fragment_item,container,false);
         recyclerView = listItems.findViewById(R.id.programmingNameList);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -80,7 +80,7 @@ public class FragmentRecycler extends Fragment implements Adapter.OnClickListene
                     dataList.add(data);
                 }
                 adapter = new Adapter(getContext(),dataList);
-                adapter.setOnClickListener(FragmentRecycler.this::onClick);
+                adapter.setOnClickListener(FragmentRecycler.this);
                 recyclerView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
 
@@ -97,11 +97,10 @@ public class FragmentRecycler extends Fragment implements Adapter.OnClickListene
 
     @Override
     public void onClick(Data model) {
-//       BlankFragment yfc = new BlankFragment();
-//        Bundle bundle = new Bundle();
-//        bundle.putSerializable("key", model);
-//        yfc.setArguments(bundle);
-
-
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("keyModel", model);
+        BlankFragment blankFragment = new BlankFragment();
+        blankFragment.setArguments(bundle);
+        mainActivity.newFragment(blankFragment);
     }
 }
