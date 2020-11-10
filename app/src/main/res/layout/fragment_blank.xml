@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/blankFragment"
+    android:background="@color/purple_700"
+    tools:context=".BlankFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:foregroundGravity="center_horizontal"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageSecondView"
+                android:layout_width="250dp"
+                android:layout_height="250dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="55dp"
+                android:layout_marginLeft="55dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginEnd="55dp"
+                android:layout_marginRight="56dp" />
+
+            <TextView
+                android:id="@+id/secondTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageSecondView"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="5dp"
+                android:text="Hello"
+                android:gravity="center_horizontal"
+                android:textColor="@color/teal_200"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/bodySecondInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Hellloooo"
+                android:gravity="center_horizontal"
+                android:scrollbars="vertical"
+                android:layout_below="@+id/secondTitle"
+                android:layout_marginRight="2dp"
+                android:textColor="@color/black"
+                tools:ignore="UnknownId" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</FrameLayout>
